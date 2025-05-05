@@ -1,0 +1,45 @@
+package tests;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.LoginPage;
+
+import java.time.Duration;
+
+public class LoginFailTest extends BaseTest {
+    private By message = By.xpath("//div[@class='oxd-alert-content oxd-alert-content--error']//p");
+
+    @Test
+    public void testValidUsernameInvalidPass() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("Admin", "123456");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(message));
+        boolean isMessageVisible = messageElement.isDisplayed();
+        Assert.assertTrue(isMessageVisible, "Message should be visible when enter invalid credential.");
+    }
+
+    @Test
+    public void testInvalidUsernameValidPass() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("Admin123", "admin123");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(message));
+        boolean isMessageVisible = messageElement.isDisplayed();
+        Assert.assertTrue(isMessageVisible, "Message should be visible when enter invalid credential.");
+    }
+
+    @Test
+    public void testBlankUsernameBlankPass() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("Admin123", "admin123");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(message));
+        boolean isMessageVisible = messageElement.isDisplayed();
+        Assert.assertTrue(isMessageVisible, "Message should be visible when enter invalid credential.");
+    }
+}
