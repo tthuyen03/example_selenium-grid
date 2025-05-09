@@ -12,9 +12,9 @@ import java.net.URL;
 
 public class BaseTest {
     protected WebDriver driver;
-    @Parameters({"browser", "nodeUrl"})
+    @Parameters({"browser"})
     @BeforeMethod
-    public void setUp(String browser, String nodeUrl) throws MalformedURLException {
+    public void setUp(String browser) throws MalformedURLException {
         DesiredCapabilities capability = new DesiredCapabilities();
         if(browser.equalsIgnoreCase("chrome")){
             capability.setBrowserName("chrome");
@@ -26,7 +26,7 @@ public class BaseTest {
 
 
 
-        driver = new RemoteWebDriver(new URL(nodeUrl), capability);
+        driver = new RemoteWebDriver(new URL("http://localhost:4445"), capability);
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
     }
