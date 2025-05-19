@@ -11,9 +11,9 @@ import java.net.URL;
 public class DriverFactory {
     protected WebDriver driver;
     public void setUp() throws MalformedURLException {
-        String env = Configuration.getProperties("ENV");
-        String browserName = Configuration.getProperties("BROWSER");
-        String baseURL = Configuration.getProperties("BASE_URL");
+        String env = Configuration.getProperties("env");
+        String browserName = Configuration.getProperties("browser");
+        String baseURL = Configuration.getProperties("baseURL");
         if(env.equalsIgnoreCase("local")){
             switch (browserName.toLowerCase()) {
                 case "chrome":
@@ -29,7 +29,7 @@ public class DriverFactory {
             }
         }
         else {
-            String remoteURL = Configuration.getProperties("REMOTE_URL");
+            String remoteURL = Configuration.getProperties("remoteURL");
             DesiredCapabilities capability = new DesiredCapabilities();
             capability.setBrowserName(browserName.toLowerCase());
             driver = new RemoteWebDriver(new URL(remoteURL), capability);

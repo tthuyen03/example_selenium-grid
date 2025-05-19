@@ -12,13 +12,5 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BaseTest extends DriverFactory {
-    @BeforeMethod
-    public void setUpTest() throws Exception {
-        setUp(); // Gọi setup từ DriverFactory
-    }
 
-    @AfterMethod
-    public void tearDownTest() {
-        tearDown(); // Gọi teardown từ DriverFactory
-    }
 }

@@ -5,15 +5,5 @@
             <class name="tests.LoginSuccessTest"/>
         </classes>
     </test>
-    <test name="EdgeTest">
-        <classes>
-            <class name="tests.LoginSuccessTest"/>
-        </classes>
-    </test>
-    <test name="Firefox Test">
-        <classes>
-            <class name="tests.LoginSuccessTest"/>
-        </classes>
-    </test>
 
 </suite>
