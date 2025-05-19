@@ -2,22 +2,16 @@
 <suite name="LoginSuite" parallel="tests" thread-count="3">
     <!-- Test on other node-->
     <test name="Chrome_LoginFail">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="nodeUrl" value="http://192.168.2.153:4444"/>
         <classes>
             <class name="tests.LoginFailTest"/>
         </classes>
     </test>
     <test name="Edge_LoginFail">
-        <parameter name="browser" value="edge"/>
-        <parameter name="nodeUrl" value="http://192.168.2.153:4444"/>
         <classes>
             <class name="tests.LoginFailTest"/>
         </classes>
     </test>
     <test name="Firefox_LoginFail">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="nodeUrl" value="http://192.168.2.153:4444"/>
         <classes>
             <class name="tests.LoginFailTest"/>
         </classes>
